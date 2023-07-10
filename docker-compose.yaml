@@ -26,6 +26,3 @@ services:
       - '8000:8000'
     environment:
       spring.config.additional-location: file:///config.yaml
-networks:
-  app:
-    driver: bridge
