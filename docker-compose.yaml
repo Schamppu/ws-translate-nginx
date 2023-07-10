@@ -13,8 +13,6 @@ services:
       - ./config:/config
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /tmp/acme_challenge:/tmp/acme_challenge
-    networks:
-      - app
     restart: always
   app:
     image: tolgee/tolgee
