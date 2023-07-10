@@ -2,14 +2,13 @@ version: "3.3"
 
 services:
   nginx:
+    image: nginx:1.23.0-alpine
     container_name: 'nginx-service'
-    build:
-      context: .
-      dockerfile: docker/nginx.Dockerfile
     ports:
       - 80:80
       - 443:443
     volumes:
+      - ./config/nginx.conf
       - ./config:/config
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /tmp/acme_challenge:/tmp/acme_challenge
