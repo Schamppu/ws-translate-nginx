@@ -10,13 +10,4 @@ services:
       - "/tmp/acme_challenge:/tmp/acme_challenge"
     environment:
       - TERM=xterm
-  app:
-    image: tolgee/tolgee
-    volumes:
-      - ./../tolgee/data:/data
-      - ./../tolgee/config.yaml:/config.yaml
-    ports:
-      - '25432:25432'
-      - '8000:8000'
-    environemnt:
-      spring.config.additional-location: file:///config.yaml
+    
