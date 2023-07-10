@@ -2,7 +2,7 @@ version: "3.3"
 services:
   letsencrypt:
     container_name: 'certbot-service'
-    image: certbot/certbot:v1.17.0
+    image: certbot/certbot:latest
     command: sh -c "certbot certonly --expand --webroot -w /tmp/acme_challenge -d translate.walkscape.app --text --agree-tos --email contact@walkscape.app --rsa-key-size 4096 --verbose --keep-until-expiring --preferred-challenges=http"
     entrypoint: ""
     volumes:
@@ -10,3 +10,4 @@ services:
       - "/tmp/acme_challenge:/tmp/acme_challenge"
     environment:
       - TERM=xterm
+    

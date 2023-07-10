@@ -13,10 +13,14 @@ services:
       - ./config:/config
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /tmp/acme_challenge:/tmp/acme_challenge
-    networks:
-      - app
     restart: always
-
-networks:
   app:
-    driver: bridge
+    image: tolgee/tolgee
+    volumes:
+      - ./../tolgee/data:/data
+      - ./../tolgee/config.yaml:/config.yaml
+    ports:
+      - '25432:25432'
+      - '8000:8000'
+    environment:
+      spring.config.additional-location: file:///config.yaml
